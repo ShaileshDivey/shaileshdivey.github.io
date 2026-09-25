@@ -1,0 +1,294 @@
+/* ==========================================================================
+   CUSTOM HOME PAGE
+   Structure inspired by the user's preferred academic landing-page layout.
+   Change the two accent variables below to retheme the hero without changing
+   the content or layout.
+   ========================================================================== */
+
+// .home-page {
+//   --home-accent: #123f3b;
+//   --home-accent-2: #17615a;
+//   --home-text: #f7fbfa;
+//   --home-muted: #d8e7e4;
+// }
+
+.home-page {
+  --home-accent: #252a30;
+  --home-accent-2: #4a5562;
+  --home-text: #fafafa;
+  --home-muted: #e0e3e7;
+}
+
+.home-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: calc(100vh - #{$masthead-height});
+  color: var(--home-text);
+  background:
+    linear-gradient(155deg, transparent 0 24%, rgba(255,255,255,0.035) 24% 41%, transparent 41% 100%),
+    linear-gradient(18deg, transparent 0 42%, rgba(255,255,255,0.04) 42% 57%, transparent 57% 100%),
+    linear-gradient(135deg, var(--home-accent), var(--home-accent-2));
+}
+
+.home-hero__inner {
+  width: calc(100% - 2rem);
+  max-width: 1350px;
+  margin: 0 auto;
+  padding: 4.5rem 0 5rem;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 4.5rem;
+  align-items: start;
+}
+
+// .home-hero__inner {
+//   width: calc(100% - 2rem);
+//   max-width: 1450px;
+//   margin: 0 auto;
+//   padding: 4.5rem 0 5rem;
+
+//   display: grid;
+//   grid-template-columns: 240px minmax(0, 1fr);
+//   gap: 3rem;
+//   align-items: start;
+// }
+
+.home-profile {
+  text-align: center;
+}
+
+.home-avatar {
+  display: block;
+  width: 190px;
+  height: 190px;
+  margin: 0 auto 1.1rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 20%;
+  border: 4px solid rgba(255,255,255,0.28);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.22);
+}
+
+.home-avatar--placeholder {
+  display: grid;
+  place-items: center;
+  font-size: 3.2rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: rgba(255,255,255,0.11);
+}
+
+.home-profile h1,
+.home-about h2 {
+  color: var(--home-text);
+}
+
+.home-profile h1 {
+  margin: 0.5rem 0 0.4rem;
+  font-size: 1.45rem;
+}
+
+.home-profile__role {
+  margin: 0;
+  font-weight: 700;
+}
+
+.home-profile__org {
+  margin: 0.35rem 0 1.2rem;
+  color: var(--home-muted);
+}
+
+.home-socials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+}
+
+.home-socials a {
+  color: var(--home-text);
+  font-size: 1.45rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.home-socials a:hover {
+  transform: translateY(-2px);
+  opacity: 0.8;
+}
+
+.home-about {
+  padding-top: 1.5rem;
+}
+
+.home-about h2 {
+  margin: 0 0 1rem;
+  font-size: 1.75rem;
+}
+
+.home-about p,
+.home-about li {
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.home-about p {
+  color: var(--home-muted);
+  // max-width: 850px;
+  max-width: 100%;
+  text-align: left;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+}
+
+.home-cv-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0.4rem 0 2.2rem;
+  padding: 0.7rem 1rem;
+  color: var(--home-text) !important;
+  background: rgba(15, 24, 40, 0.58);
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 8px;
+  text-decoration: none !important;
+  font-weight: 650;
+}
+
+.home-cv-button:hover {
+  background: rgba(15, 24, 40, 0.76);
+}
+
+.home-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  margin-top: 0.4rem;
+}
+
+.home-details-grid ul {
+  margin-top: 0;
+  padding-left: 1.25rem;
+}
+
+.home-education-item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 0.75rem;
+  margin: 0 0 0.95rem;
+  align-items: start;
+}
+
+.home-education-item i {
+  margin-top: 0.3rem;
+}
+
+.home-education-item span {
+  color: var(--home-muted);
+  font-size: 0.94rem;
+}
+
+@media (max-width: 900px) {
+  .home-hero__inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding-top: 3rem;
+  }
+
+  .home-profile {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .home-about {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .home-hero__inner {
+    width: calc(100% - 1.4rem);
+    max-width: 1180px;
+    padding-top: 2.3rem;
+  }
+
+  .home-avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .home-details-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .home-about h2 {
+    font-size: 1.45rem;
+  }
+
+  // .home-about p,
+  // .home-about li {
+  //   font-size: 1rem;
+  // }
+}
+
+/* Clean, readable spacing for the custom content pages. */
+.paper-entry {
+  margin: 0 0 1.7rem;
+}
+
+.paper-entry h3 {
+  margin-bottom: 0.25rem;
+}
+
+.paper-entry p {
+  margin: 0.2rem 0;
+}
+
+.page-intro {
+  max-width: 780px;
+  color: var(--global-text-color-light);
+}
+
+/* Force normal wrapping in About Me */
+.home-about,
+.home-about * {
+  text-align: left !important;
+
+  hyphens: none !important;
+  -webkit-hyphens: none !important;
+  -ms-hyphens: none !important;
+
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  word-wrap: normal !important;
+
+  white-space: normal !important;
+}
+
+@media (max-width: 768px) {
+  .home-hero__inner {
+    width: calc(100% - 2rem);
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem 0 3rem;
+  }
+
+  .home-profile,
+  .home-about {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  #main.main--wide {
+    width: auto;
+    max-width: none;
+  }
+
+  .archive--wide {
+    width: 100%;
+    margin-left: 0;
+  }
+}

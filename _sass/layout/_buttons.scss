@@ -153,3 +153,77 @@
     font-size: $type-size-7;
   }
 }
+
+.btn,
+.btn:visited,
+.btn:hover,
+.btn:focus,
+.btn:active {
+  text-decoration: none !important;
+}
+
+/* Paper abstract
+   ========================================================================== */
+
+.paper-abstract {
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.paper-abstract summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.paper-abstract summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Highlighted abstract area when expanded */
+.paper-abstract[open] .abstract-text {
+  margin-top: 1.25rem;
+  padding: 1.1rem 1.25rem;
+
+  background: #f6f8fa;
+  border-left: 3px solid #7b8da1;
+
+  font-size: 0.95rem;
+  line-height: 1.65;
+
+  max-width: 100%;
+  box-sizing: border-box;
+
+  text-align: justify;
+}
+
+.paper-abstract[open] .abstract-text p {
+  margin: 0;
+
+}
+
+.paper-abstract[open] summary.btn {
+  background-color: #eef1f4;
+}
+
+/* Inline paper buttons
+   ========================================================================== */
+.paper-abstract-inline {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0 0.4rem 0 0;
+}
+.request-draft-btn {
+  display: inline-block;
+  vertical-align: top;
+  margin: 0;
+}
+/* When abstract is opened, let it use the full paper width */
+.paper-abstract-inline[open] {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.6rem;
+}
+.paper-abstract-inline[open] .abstract-text {
+  width: 100%;
+  box-sizing: border-box;
+}

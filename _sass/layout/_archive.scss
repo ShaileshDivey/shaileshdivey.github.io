@@ -9,9 +9,14 @@
     @include span(12 of 12);
   }
 
-  @include breakpoint($large) {
+  // @include breakpoint($large) {
+  //   @include span(12 of 12 last);
+  //   @include prefix(0.5 of 12);
+  // }
+
+    @include breakpoint($large) {
     @include span(10 of 12 last);
-    @include prefix(0.5 of 12);
+    @include prefix(2 of 12);
   }
 
   a {
@@ -241,5 +246,258 @@
         width: span(7 of 12);
       }
     }
+  }
+}
+
+/* Wide archive pages
+   ========================================================================== */
+
+#main.main--wide {
+  @include breakpoint($x-large) {
+    max-width: 1400px;
+  }
+}
+
+.archive--wide {
+  @include breakpoint($medium) {
+    width: calc(100% - 2.00rem);
+    margin-left: 2.00rem;
+  }
+}
+
+/* Compact archive pages
+   ========================================================================== */
+
+.archive--compact {
+  h2 {
+    margin-top: 1.6rem;
+    margin-bottom: 0.9rem;
+  }
+
+  h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+  }
+
+  p {
+    margin-top: 0.2rem;
+    margin-bottom: 0.45rem;
+    line-height: 1.5;
+  }
+
+  .paper-entry {
+    margin-bottom: 1.4rem;
+  }
+
+  .paper-entry h3 {
+    font-size: 1.0rem;
+  }
+
+  .paper-entry p {
+    font-size: 0.90rem;
+  }
+
+  /* Teaching page */
+  .teaching-entry {
+    margin-bottom: 1.4rem;
+  }
+
+.teaching-entry h3 {
+    font-size: 1rem;
+  }
+
+.teaching-entry p {
+    font-size: 0.90rem;
+  }
+
+}
+
+/* Experimental Research page
+   ========================================================================== */
+
+/* Filter buttons */
+.research-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.8rem 0 1.5rem;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+.research-filter {
+  appearance: none;
+  padding: 0.38rem 0.7rem;
+  border: 1px solid #b8bec5;
+  border-radius: 5px;
+  background: #fff;
+  color: #444;
+  font-family: inherit;
+  font-size: 0.80rem;
+  cursor: pointer;
+
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.research-filter:hover {
+  background: #f2f4f6;
+}
+
+.research-filter.active {
+  background: #4c5967;
+  border-color: #4c5967;
+  color: #fff;
+}
+
+
+/* Research entries */
+.research-item {
+  display: grid;
+  grid-template-columns: 62px minmax(0, 1fr);
+  column-gap: 1.25rem;
+  align-items: start;
+
+  margin-bottom: 0.85rem;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
+}
+
+.research-year {
+  grid-column: 1;
+  padding-top: 0.15rem;
+  color: #777;
+  font-size: 0.86rem;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.research-paper {
+  grid-column: 2;
+  min-width: 0;
+}
+
+
+/* Remove spacing inherited from the normal Papers page */
+.research-item .paper-entry {
+  margin-bottom: 0;
+}
+
+.research-item .paper-entry h3 {
+  margin-top: 0;
+  margin-bottom: 0.18rem;
+
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.research-item .paper-entry p {
+  margin-top: 0;
+  margin-bottom: 0.18rem;
+
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+
+/* Paper buttons */
+.research-item .btn {
+  margin-top: 0.25rem;
+  padding: 0.32rem 0.65rem;
+  font-size: 0.75rem;
+}
+
+
+/* Used by the filter JavaScript */
+.research-item.is-hidden {
+  display: none !important;
+}
+
+/* Status ribbon */
+.research-status {
+  display: inline-block;
+
+  margin: 0.05rem 0 0.35rem;
+  padding: 0.18rem 0.48rem;
+
+  border-radius: 3px;
+
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+}
+
+/* Published / Accepted */
+.research-item[data-status="published"] .research-status {
+  background: #e5f2ea;
+  color: #28623f;
+}
+
+/* Under Review */
+.research-item[data-status="review"] .research-status {
+  background: #f6ead7;
+  color: #8a5a17;
+}
+
+/* Working Paper */
+.research-item[data-status="working"] .research-status {
+  background: #e4eef5;
+  color: #315f7d;
+}
+
+/* Work in Progress */
+.research-item[data-status="progress"] .research-status {
+  background: #ececef;
+  color: #5f6268;
+}
+
+/* Conference Proceedings */
+.research-item[data-status="conference"] .research-status {
+  background: #9c7b96;
+  color: #e6e2e7;
+}
+
+
+/* Mobile */
+@media (max-width: 700px) {
+
+  .research-item {
+    grid-template-columns: 1fr;
+    row-gap: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .research-year,
+  .research-paper {
+    grid-column: 1;
+  }
+
+  .research-year {
+    margin-bottom: 0.15rem;
+    font-size: 0.82rem;
+  }
+
+  .research-filters {
+    margin-bottom: 1.25rem;
   }
 }
